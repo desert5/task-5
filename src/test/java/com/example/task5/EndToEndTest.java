@@ -31,8 +31,8 @@ class EndToEndTest {
         assertEqual(new BigDecimal("153"), wallet1.getAmount());
         assertEqual(new BigDecimal("436"), wallet2.getAmount());
 
-        assertEquals(3, wallet1.getTransaction().size());
-        assertEquals(2, wallet2.getTransaction().size());
+        assertEquals(3, wallet1.getTransactions().size());
+        assertEquals(2, wallet2.getTransactions().size());
     }
 
     private void assertEqual(BigDecimal expected, BigDecimal actual) {

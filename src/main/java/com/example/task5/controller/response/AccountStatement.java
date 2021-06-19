@@ -1,6 +1,6 @@
 package com.example.task5.controller.response;
 
-import com.example.task5.persistense.model.TransactionEntity;
+import com.example.task5.controller.request.Transaction;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
@@ -11,5 +11,5 @@ import java.util.List;
 @AllArgsConstructor
 public class AccountStatement {
     private BigDecimal amount;
-    private List<TransactionEntity> transaction;
+    private List<Transaction> transactions;
 }
