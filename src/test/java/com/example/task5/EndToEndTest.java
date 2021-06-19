@@ -20,11 +20,13 @@ class EndToEndTest {
     private TestRestTemplate testRest;
 
     @Test
-    void end2end() {
+    void resultingAmountsShouldBeCorrect() {
+        // when
         testRest.postForObject("http://localhost:8080/transactions", new HttpEntity<>("{ \"from\": 1, \"to\": 2, \"amount\": \"10.0\"}", jsonHeader()), String.class);
         testRest.postForObject("http://localhost:8080/transactions", new HttpEntity<>("{ \"from\": 2, \"to\": 1, \"amount\": \"30.0\"}", jsonHeader()), String.class);
         testRest.postForObject("http://localhost:8080/transactions", new HttpEntity<>("{ \"from\": 3, \"to\": 1, \"amount\": \"10.0\"}", jsonHeader()), String.class);
 
+        // then
         AccountStatement wallet1 = testRest.getForObject("http://localhost:8080/wallets/1/statement", AccountStatement.class);
         AccountStatement wallet2 = testRest.getForObject("http://localhost:8080/wallets/2/statement", AccountStatement.class);
 
